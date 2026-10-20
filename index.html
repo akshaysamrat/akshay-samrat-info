@@ -1,0 +1,333 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Akshay Samrat, Agentic AI Systems Designer</title>
+<meta name="description" content="Akshay Samrat: Mule 4 certified integration engineer (6+ years) designing agentic AI systems where the model decides and tested, access-controlled tools act.">
+<meta property="og:title" content="Akshay Samrat, Agentic AI Systems Designer">
+<meta property="og:description" content="From API-led integration to agent-led systems. Projects: Dant Saathi (Hindi WhatsApp booking agent), an AI sales assistant orchestrated with a MuleSoft MCP server, and more.">
+<style>
+  :root {
+    --bg:#f7f9fc; --card:#ffffff; --ink:#142132; --muted:#5a6a7c; --line:#d9e1ea;
+    --accent:#0b7f7c; --accent-soft:#d9f2f1; --warm:#d9731a; --warm-soft:#fdeedd;
+    --ok:#1f9d55; --term:#0f1b28; --term-ink:#d7e6f2; --shadow:0 6px 24px rgba(20,40,60,.08);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg:#0d1520; --card:#162331; --ink:#e8eef4; --muted:#9db0c2; --line:#273747;
+      --accent:#3cc7c3; --accent-soft:#12383a; --warm:#f5a65b; --warm-soft:#3a2a17;
+      --ok:#4ccb86; --term:#08111a; --term-ink:#d7e6f2; --shadow:0 6px 24px rgba(0,0,0,.45);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg:#0d1520; --card:#162331; --ink:#e8eef4; --muted:#9db0c2; --line:#273747;
+    --accent:#3cc7c3; --accent-soft:#12383a; --warm:#f5a65b; --warm-soft:#3a2a17;
+    --ok:#4ccb86; --term:#08111a; --term-ink:#d7e6f2; --shadow:0 6px 24px rgba(0,0,0,.45);
+  }
+  * { box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body { margin:0; background:var(--bg); color:var(--ink);
+    font:17px/1.65 "Segoe UI", system-ui, -apple-system, "Noto Sans Devanagari", sans-serif; }
+  a { color:var(--accent); }
+  .wrap { max-width:1060px; margin:0 auto; padding:0 18px; }
+  header.top { position:sticky; top:0; z-index:5; background:color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter:blur(8px); border-bottom:1px solid var(--line); }
+  header.top .wrap { display:flex; align-items:center; gap:14px; flex-wrap:wrap; padding-top:10px; padding-bottom:10px; }
+  .brand { font-weight:800; letter-spacing:.02em; }
+  nav { display:flex; gap:14px; flex-wrap:wrap; margin-left:auto; align-items:center; }
+  nav a { text-decoration:none; color:var(--muted); font-size:.95rem; }
+  nav a:hover { color:var(--accent); }
+  button { font:inherit; cursor:pointer; }
+  .btn { display:inline-block; padding:10px 18px; border-radius:999px; border:1px solid var(--line);
+    background:var(--card); color:var(--ink); text-decoration:none; font-weight:600; }
+  .btn:hover { border-color:var(--accent); }
+  .btn.primary { background:var(--accent); border-color:var(--accent); color:#fff; }
+  .btn:focus-visible, a:focus-visible, button:focus-visible, summary:focus-visible { outline:3px solid var(--accent); outline-offset:2px; }
+  .icon-btn { padding:6px 10px; border-radius:10px; }
+
+  .hero { padding:44px 0 30px; display:grid; grid-template-columns:1.1fr 1fr; gap:28px; align-items:center; }
+  @media (max-width:860px) { .hero { grid-template-columns:1fr; } }
+  .eyebrow { color:var(--accent); font-weight:700; letter-spacing:.08em; text-transform:uppercase; font-size:.8rem; }
+  h1 { font-size:clamp(2rem,5vw,3.1rem); line-height:1.1; margin:8px 0 12px; }
+  h1 em { font-style:normal; color:var(--accent); }
+  .lede { color:var(--muted); font-size:1.12rem; max-width:34em; }
+  .cta { display:flex; gap:10px; flex-wrap:wrap; margin-top:18px; }
+  .facts { display:flex; gap:18px; flex-wrap:wrap; margin-top:22px; color:var(--muted); font-size:.92rem; }
+  .facts b { color:var(--ink); display:block; font-size:1.3rem; }
+
+  .term { background:var(--term); color:var(--term-ink); border-radius:16px; box-shadow:var(--shadow);
+    font:14px/1.55 ui-monospace, "Cascadia Mono", Consolas, monospace; overflow:hidden; border:1px solid var(--line); }
+  .term-bar { display:flex; align-items:center; gap:7px; padding:10px 14px; background:rgba(255,255,255,.06); font-size:12px; }
+  .dot { width:11px; height:11px; border-radius:50%; background:#ff6b6b; }
+  .dot:nth-child(2){ background:#ffd166; } .dot:nth-child(3){ background:#4ccb86; }
+  .term-bar .t { margin-left:8px; opacity:.8; }
+  .term-body { padding:14px 16px; min-height:290px; }
+  .ln { opacity:0; transform:translateY(6px); transition:all .35s; margin:5px 0; }
+  .ln.show { opacity:1; transform:none; }
+  .ln .who { color:#6fd3d0; font-weight:700; }
+  .ln .tool { color:#ffb86b; }
+  .ln .ok { color:#6be39a; }
+  .ln .hi { font-family:"Segoe UI","Noto Sans Devanagari",sans-serif; font-size:15px; color:#fff; }
+  .term-foot { display:flex; justify-content:space-between; align-items:center; padding:8px 14px 12px; font-size:12px; opacity:.85; }
+  .term-foot button { background:transparent; border:1px solid rgba(255,255,255,.3); color:inherit; border-radius:8px; padding:3px 10px; }
+
+  section { padding:34px 0; }
+  h2 { font-size:1.6rem; margin:0 0 6px; }
+  .sub { color:var(--muted); margin:0 0 20px; max-width:46em; }
+  .grid { display:grid; gap:16px; }
+  .g3 { grid-template-columns:repeat(auto-fit,minmax(290px,1fr)); }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:16px; padding:18px; box-shadow:var(--shadow); }
+  .card h3 { margin:0 0 4px; font-size:1.1rem; }
+  .chip { display:inline-block; padding:2px 10px; border-radius:999px; font-size:.75rem; font-weight:700; margin:2px 4px 2px 0; }
+  .chip.s-prog { background:var(--warm-soft); color:var(--warm); }
+  .chip.s-done { background:var(--accent-soft); color:var(--accent); }
+  .chip.s-soon { background:var(--line); color:var(--muted); }
+  .tags { margin-top:10px; display:flex; gap:6px; flex-wrap:wrap; }
+  .tag { border:1px solid var(--line); border-radius:8px; padding:1px 8px; font-size:.8rem; color:var(--muted); }
+  ul.tight { margin:8px 0 0; padding-left:20px; }
+  ul.tight li { margin:4px 0; }
+
+  .switch { display:inline-flex; border:1px solid var(--line); border-radius:999px; overflow:hidden; margin-bottom:16px; background:var(--card); }
+  .switch button { border:0; background:transparent; color:var(--ink); padding:8px 16px; font-weight:600; }
+  .switch button[aria-pressed="true"] { background:var(--accent); color:#fff; }
+  .map .card { transition:transform .2s; }
+  .map .card:hover { transform:translateY(-3px); }
+  .map .k { font-size:.75rem; letter-spacing:.07em; text-transform:uppercase; color:var(--muted); }
+  .map .v { font-size:1.02rem; font-weight:600; margin-top:2px; }
+  .map .d { color:var(--muted); font-size:.92rem; margin-top:6px; }
+
+  .tl { border-left:3px solid var(--accent); margin-left:8px; padding-left:20px; }
+  .tl .item { position:relative; margin-bottom:18px; }
+  .tl .item::before { content:""; position:absolute; left:-29px; top:8px; width:13px; height:13px; border-radius:50%; background:var(--accent); border:3px solid var(--bg); }
+  .tl h3 { margin:0; font-size:1.1rem; }
+  .tl .when { color:var(--muted); font-size:.9rem; }
+  details { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:8px 14px; margin-top:8px; }
+  summary { cursor:pointer; font-weight:600; }
+  footer { border-top:1px solid var(--line); padding:26px 0 40px; color:var(--muted); font-size:.9rem; }
+  @media (prefers-reduced-motion: reduce) { * { transition:none !important; animation:none !important; } html{scroll-behavior:auto;} }
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <span class="brand">Akshay Samrat</span>
+    <nav aria-label="Sections">
+      <a href="#how">How I think</a>
+      <a href="#projects">Projects</a>
+      <a href="#experience">Experience</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+      <button class="btn icon-btn" id="theme" aria-label="Switch light or dark theme">🌗</button>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="hero" id="top">
+    <div>
+      <div class="eyebrow">Agentic AI Systems Designer</div>
+      <h1>I design AI agents that <em>act safely</em>.</h1>
+      <p class="lede">Six years of building enterprise APIs on MuleSoft taught me what makes automation trustworthy: contracts, policies, retries and audit trails. Now I apply it to agents, where a model decides and tested, access-controlled tools do the work.</p>
+      <div class="cta">
+        <a class="btn primary" href="Akshay_Samrat_Resume.pdf">⬇ Download resume (PDF)</a>
+        <a class="btn" href="#projects">See projects</a>
+        <a class="btn" href="https://www.linkedin.com/in/akshay-samrat-309b25136/" rel="noopener">LinkedIn</a>
+      </div>
+      <div class="facts">
+        <div><b>6+ yrs</b>enterprise integration</div>
+        <div><b>Mule 4</b>certified developer</div>
+        <div><b>MCP · Claude</b>agent orchestration</div>
+        <div><b>EN · हिंदी</b>multilingual agents</div>
+      </div>
+    </div>
+
+    <div class="term" aria-label="Illustrative agent trace from my Dant Saathi project">
+      <div class="term-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="t">agent-trace · Dant Saathi</span></div>
+      <div class="term-body" id="trace" aria-live="polite">
+        <div class="ln"><span class="who">patient</span> <span class="hi">"kal sham ko appointment mil jayega?"</span></div>
+        <div class="ln"><span class="who">guard</span>&nbsp; signature <span class="ok">✓</span> · duplicate <span class="ok">no</span> → pass</div>
+        <div class="ln"><span class="who">agent</span>&nbsp; intent=book · calls <span class="tool">get_free_slots(date="tomorrow")</span></div>
+        <div class="ln"><span class="who">tool</span>&nbsp;&nbsp; checks future date · clinic hours · IST</div>
+        <div class="ln"><span class="who">db</span>&nbsp;&nbsp;&nbsp;&nbsp; free: <span class="ok">17:00, 18:30</span> (the agent never invents slots)</div>
+        <div class="ln"><span class="who">agent</span>&nbsp; replies in Hindi · no medical advice</div>
+        <div class="ln"><span class="who">bot</span>&nbsp;&nbsp;&nbsp; <span class="hi">"जी, कल शाम 5:00 बजे और 6:30 बजे स्लॉट खाली हैं। कौन सा चाहिए?"</span></div>
+      </div>
+      <div class="term-foot"><span>Illustrative trace of my design</span><button id="replay" type="button">↺ Replay</button></div>
+    </div>
+  </section>
+
+  <section id="how">
+    <h2>How I think: from API-led to agent-led</h2>
+    <p class="sub">The habits of good integration design carry straight over. Flip the switch to see the same idea in both worlds.</p>
+    <div class="switch" role="group" aria-label="Choose a view">
+      <button type="button" id="vMule" aria-pressed="true">MuleSoft world</button>
+      <button type="button" id="vAgent" aria-pressed="false">Agentic AI world</button>
+    </div>
+    <div class="grid g3 map" id="map"></div>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <p class="sub">Stated honestly: what is built, what is in progress, and what is only presented.</p>
+    <div class="grid g3">
+      <article class="card">
+        <h3>Dant Saathi</h3>
+        <span class="chip s-prog">In progress · testing</span>
+        <p>A Hindi/Hinglish WhatsApp assistant for a dental clinic in Ranchi to book, change and cancel appointments. Claude is the brain; Python tools do the real work. It never gives medical advice and hands over to a human.</p>
+        <ul class="tight">
+          <li><b>Built:</b> signed webhook (HMAC), duplicate-safe handling, masked logs, delivery-status tracing, outbound replies</li>
+          <li><b>Next:</b> Claude tool use, booking tools, appointment database, staff view</li>
+          <li><b>Also:</b> bilingual privacy policy, DPDP-minded data plan, security and test plans, interactive architecture diagram</li>
+        </ul>
+        <div class="tags"><span class="tag">Claude tool use</span><span class="tag">FastAPI</span><span class="tag">WhatsApp Cloud API</span><span class="tag">Security by design</span></div>
+      </article>
+
+      <article class="card">
+        <h3>AI-powered sales assistant</h3>
+        <span class="chip s-done">Presented to a global beverage client</span>
+        <p>A conversational assistant that takes a user from checking products to a full order, with inventory management behind it.</p>
+        <ul class="tight">
+          <li>Orchestrated with <b>Einstein AI</b> and a <b>MuleSoft MCP server and client</b></li>
+          <li>Python / Streamlit front end</li>
+          <li>Presented while at Accelirate</li>
+        </ul>
+        <div class="tags"><span class="tag">MCP</span><span class="tag">MuleSoft</span><span class="tag">Einstein AI</span><span class="tag">Streamlit</span></div>
+      </article>
+
+      <article class="card">
+        <h3>Somras</h3>
+        <span class="chip s-soon">Early stage · details coming soon</span>
+        <p>My own brand for AI and integration ideas. More here once it is ready to be shown.</p>
+        <div class="tags"><span class="tag">Independent</span></div>
+      </article>
+    </div>
+  </section>
+
+  <section id="experience">
+    <h2>Experience</h2>
+    <p class="sub">API and integration delivery across energy, pharma, retail supply chain, beverages and healthcare staffing.</p>
+    <div class="tl">
+      <div class="item">
+        <h3>Accelirate Inc.</h3><div class="when">2023 to present · Application Developer</div>
+        <details open><summary>Global beverage company</summary>
+          <ul class="tight">
+            <li>Presented an AI-powered sales assistant (product lookup to order and inventory) orchestrated with Einstein AI and a MuleSoft MCP server and client.</li>
+            <li>Owned the Print &amp; Apply division integrations: accurate labeling, automated packaging workflows, supply-chain system integration.</li>
+            <li>Led the migration of Fulfilment APIs from Mule 3 to Mule 4.</li>
+          </ul>
+        </details>
+        <details><summary>Healthcare staffing firm</summary>
+          <ul class="tight">
+            <li>Led a team of 4 building a client portal for healthcare and facility management.</li>
+            <li>Auth0 for access management; authenticated and controlled user-level access to Tableau dashboards through MuleSoft.</li>
+            <li>Designed a simplified API for scheduling, timesheets and related data.</li>
+          </ul>
+        </details>
+      </div>
+      <div class="item">
+        <h3>Accenture</h3><div class="when">2021 to May 2023 · Application Developer</div>
+        <details><summary>Global pharma company</summary>
+          <ul class="tight"><li>Okta integration for registration; Salesforce integration for the back end.</li></ul>
+        </details>
+        <details><summary>US pharma distributor</summary>
+          <ul class="tight"><li>Orchestration APIs using a hub-and-spoke model with Salesforce integration.</li></ul>
+        </details>
+      </div>
+      <div class="item">
+        <h3>Tata Consultancy Services</h3><div class="when">2019 to 2021 · Application Developer</div>
+        <details><summary>US energy utility</summary>
+          <ul class="tight">
+            <li>REST APIs on Anypoint Platform; API specifications in RAML, published through Exchange.</li>
+            <li>Security policies (basic authentication, client ID enforcement); Workday, SOAP and HTTP connectors; XSLT; SFTP file creation.</li>
+            <li>Migrated integrations from DataPower to MuleSoft.</li>
+          </ul>
+        </details>
+        <details><summary>Supply-chain software vendor</summary>
+          <ul class="tight"><li>Proofs of concept for custom connectors with the Mule SDK, connecting databases and services.</li></ul>
+        </details>
+        <details><summary>Global automaker</summary>
+          <ul class="tight"><li>Java Spring applications deployed on AWS Lambda; converted complex DB2 scripts to AWS Aurora.</li></ul>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <h2>Skills</h2>
+    <div class="grid g3">
+      <div class="card"><h3>Building agents now</h3>
+        <div class="tags"><span class="tag">Claude API &amp; tool use</span><span class="tag">MCP</span><span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">httpx</span><span class="tag">Guardrails</span><span class="tag">Conversation evals</span></div></div>
+      <div class="card"><h3>Integration (core strength)</h3>
+        <div class="tags"><span class="tag">MuleSoft Mule 4</span><span class="tag">API-led architecture</span><span class="tag">RAML · API Manager</span><span class="tag">DataWeave</span><span class="tag">CloudHub</span><span class="tag">Custom connectors (Mule SDK)</span><span class="tag">IBM MQ</span><span class="tag">Workday · Salesforce · Okta · Auth0</span></div></div>
+      <div class="card"><h3>Cloud &amp; engineering</h3>
+        <div class="tags"><span class="tag">AWS Lambda · S3 · Aurora</span><span class="tag">Java · Spring</span><span class="tag">Maven</span><span class="tag">MySQL</span><span class="tag">Git</span></div></div>
+    </div>
+    <p class="sub" style="margin-top:18px"><b>Certification:</b> Mule 4 Certified Developer.</p>
+    <p class="sub"><b>Education:</b> PGPM, IMT Ghaziabad (2021) · B.Tech CSE, SRM University (2019, 89.08%). Technical head of Gen Hybrid Labs; recognised by the department head for a crop recommendation system; first prize in a physics project.</p>
+    <p class="sub"><b>Research:</b> <a href="http://sersc.org/journals/index.php/IJAST/article/view/10819" rel="noopener">published paper (IJAST)</a></p>
+  </section>
+
+  <section id="contact">
+    <h2>Let's talk</h2>
+    <p class="sub">Open to agentic AI design roles: agents with real tools, real guardrails, and real users.</p>
+    <div class="cta">
+      <a class="btn primary" href="mailto:jobsforakshay08@gmail.com">Email me</a>
+      <a class="btn" href="https://www.linkedin.com/in/akshay-samrat-309b25136/" rel="noopener">LinkedIn</a>
+      <a class="btn" href="Akshay_Samrat_Resume.pdf">Resume (PDF)</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">Akshay Samrat · India. This page was written with Claude as a pair-programmer; the experience and projects are mine.</div>
+</footer>
+
+<script>
+(function () {
+  /* theme toggle */
+  document.getElementById('theme').addEventListener('click', function () {
+    var r = document.documentElement, dark = r.getAttribute('data-theme') === 'dark' ||
+      (!r.getAttribute('data-theme') && matchMedia('(prefers-color-scheme: dark)').matches);
+    r.setAttribute('data-theme', dark ? 'light' : 'dark');
+  });
+
+  /* agent trace animation */
+  var lines = Array.prototype.slice.call(document.querySelectorAll('#trace .ln')), timers = [];
+  function play() {
+    timers.forEach(clearTimeout); timers = [];
+    var still = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    lines.forEach(function (l, i) {
+      l.classList.remove('show');
+      timers.push(setTimeout(function () { l.classList.add('show'); }, still ? 0 : 700 + i * 950));
+    });
+  }
+  document.getElementById('replay').addEventListener('click', play);
+  play();
+
+  /* MuleSoft <-> agentic AI mapping */
+  var MAP = [
+    { mule: 'Experience, Process and System APIs', mv: 'Layered APIs, each with one job', agent: 'Agent, tools and systems of record', av: 'The agent decides; tools act; databases hold the truth', d: 'Same layering, new top layer.' },
+    { mule: 'API policies (client ID enforcement)', mv: 'Checked before the flow runs', agent: 'Guardrails in code', av: 'Ownership and limits are enforced in the tool, not only in the prompt', d: 'A prompt is a request. Code is a lock.' },
+    { mule: 'Idempotent Message Validator', mv: 'The same message twice, one effect', agent: 'Duplicate-safe tool calls', av: 'Message IDs stop double bookings when Meta retries', d: 'Built into Dant Saathi.' },
+    { mule: 'RAML and DataWeave types', mv: 'Contracts for every payload', agent: 'Typed tool schemas', av: 'Every tool input is validated before it touches data', d: 'Bad input never reaches the database.' },
+    { mule: 'MUnit', mv: 'Tests for every flow', agent: 'Conversation evals and attack tests', av: 'Hindi, typos, prompt injection, medical questions', d: 'Every wrong answer becomes a new test.' },
+    { mule: 'Anypoint Monitoring', mv: 'Know before the client does', agent: 'Masked logs and delivery tracing', av: 'Status codes read from the platform, no personal data in logs', d: 'It exposed a Meta account block within one log line.' }
+  ];
+  var holder = document.getElementById('map'), mode = 'mule';
+  function draw() {
+    holder.innerHTML = MAP.map(function (m) {
+      var key = mode === 'mule' ? 'In MuleSoft' : 'In agentic AI';
+      var v = mode === 'mule' ? m.mule : m.agent, d = mode === 'mule' ? m.mv : m.av;
+      return '<div class="card"><div class="k">' + key + '</div><div class="v">' + v + '</div><div class="d">' + d + '</div></div>';
+    }).join('');
+    document.getElementById('vMule').setAttribute('aria-pressed', mode === 'mule');
+    document.getElementById('vAgent').setAttribute('aria-pressed', mode === 'agent');
+  }
+  document.getElementById('vMule').addEventListener('click', function () { mode = 'mule'; draw(); });
+  document.getElementById('vAgent').addEventListener('click', function () { mode = 'agent'; draw(); });
+  draw();
+})();
+</script>
+</body>
+</html>
