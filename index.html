@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Akshay Samrat, Agentic AI Systems Designer</title>
-<meta name="description" content="Akshay Samrat: Mule 4 certified integration engineer (6+ years) designing agentic AI systems where the model interprets and tested, access-controlled code acts.">
+<meta name="description" content="Akshay Samrat: Mule 4 certified integration engineer (7+ years) designing agentic AI systems where the model interprets and tested, access-controlled code acts.">
 <meta property="og:title" content="Akshay Samrat, Agentic AI Systems Designer">
 <meta property="og:description" content="From API-led integration to agent-led systems. Projects: a WhatsApp appointment assistant for Hindi and Maithili-speaking patients, an AI sales assistant orchestrated with a MuleSoft MCP server, and more.">
 <style>
@@ -102,6 +102,19 @@
   .tl .item::before { content:""; position:absolute; left:-29px; top:8px; width:13px; height:13px; border-radius:50%; background:var(--accent); border:3px solid var(--bg); }
   .tl h3 { margin:0; font-size:1.1rem; }
   .tl .when { color:var(--muted); font-size:.9rem; }
+  .arch { display:flex; flex-direction:column; gap:6px; }
+  .layer { border:1px solid var(--line); border-radius:16px; padding:12px; background:var(--card); }
+  .layer.edge { border-color:var(--warm); }
+  .layer.box { border:2px dashed var(--accent); background:color-mix(in srgb, var(--accent-soft) 45%, var(--card)); }
+  .lname { font-size:.75rem; letter-spacing:.07em; text-transform:uppercase; color:var(--muted); font-weight:700; margin-bottom:8px; }
+  .nodes { display:grid; gap:10px; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); }
+  .nodes.data { margin-top:10px; }
+  .node { border:1px solid var(--line); border-radius:12px; padding:9px 12px; background:var(--bg); }
+  .node b { display:block; }
+  .node span { color:var(--muted); font-size:.88rem; }
+  .node.db { border-color:var(--accent); }
+  .arrow { text-align:center; color:var(--accent); font-weight:700; font-size:.9rem; }
+  .arch-h { font-size:1.2rem; margin:26px 0 12px; }
   details { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:8px 14px; margin-top:8px; }
   summary { cursor:pointer; font-weight:600; }
   footer { border-top:1px solid var(--line); padding:26px 0 40px; color:var(--muted); font-size:.9rem; }
@@ -115,6 +128,7 @@
     <nav aria-label="Sections">
       <a href="#how">How I think</a>
       <a href="#projects">Projects</a>
+      <a href="#architecture">Architecture</a>
       <a href="#experience">Experience</a>
       <a href="#skills">Skills</a>
       <a href="#contact">Contact</a>
@@ -128,14 +142,14 @@
     <div>
       <div class="eyebrow">Agentic AI Systems Designer</div>
       <h1>I design AI agents that <em>act safely</em>.</h1>
-      <p class="lede">Six years of building enterprise APIs on MuleSoft taught me what makes automation trustworthy: contracts, policies, retries and audit trails. Now I apply it to agents, where a model understands the request and tested, access-controlled code does the work.</p>
+      <p class="lede">Seven years of building enterprise APIs on MuleSoft taught me what makes automation trustworthy: contracts, policies, retries and audit trails. Now I apply it to agents, where a model understands the request and tested, access-controlled code does the work.</p>
       <div class="cta">
         <a class="btn primary" href="Akshay_Samrat_Resume.pdf">⬇ Download resume (PDF)</a>
         <a class="btn" href="#projects">See projects</a>
         <a class="btn" href="https://www.linkedin.com/in/akshay-samrat-309b25136/" rel="noopener">LinkedIn</a>
       </div>
       <div class="facts">
-        <div><b>6+ yrs</b>enterprise integration</div>
+        <div><b>7+ yrs</b>enterprise integration</div>
         <div><b>Mule 4</b>certified developer</div>
         <div><b>MCP · Claude</b>agent orchestration</div>
         <div><b>EN · हिंदी · मैथिली</b>multilingual agents</div>
@@ -178,9 +192,10 @@
         <ul class="tight">
           <li><b>Design:</b> buttons first, AI second. The model only extracts intent as validated JSON; code decides, and the model never sees personal data or the schedule</li>
           <li><b>Built:</b> multi-clinic data isolation (Postgres row-level security), no double booking by database constraint, appointment state machine, signed and idempotent webhooks, metered LLM routing, clinic portal and company console</li>
-          <li><b>Tested:</b> 250+ integration tests, browser tests, and a security campaign with 12 fixes, each with a regression test</li>
+          <li><b>Tested:</b> 280 integration tests, browser tests, and a security campaign with 12 fixes, each with a regression test</li>
           <li><b>Earlier version:</b> Python/FastAPI bot, live on WhatsApp as the demo</li>
         </ul>
+        <p><a href="#architecture">See the architecture and how it is secured →</a></p>
         <div class="tags"><span class="tag">TypeScript</span><span class="tag">NestJS</span><span class="tag">Next.js</span><span class="tag">PostgreSQL</span><span class="tag">WhatsApp Cloud API</span><span class="tag">Claude Code</span></div>
       </article>
 
@@ -202,6 +217,106 @@
         <p>My own brand for AI and integration ideas. More here once it is ready to be shown.</p>
         <div class="tags"><span class="tag">Independent</span></div>
       </article>
+    </div>
+  </section>
+
+  <section id="architecture">
+    <h2>Architecture: the WhatsApp clinic assistant</h2>
+    <p class="sub">One request's path, from a patient's phone to the database. Security is built in layers, so no single mistake opens everything. It runs locally in Docker today; the same containers are set up for one cloud VM behind Cloudflare.</p>
+    <div class="arch" role="img" aria-label="Architecture: users reach Cloudflare and Caddy, which forward to the API, portal and console on a private Docker network; a worker processes queued jobs; PostgreSQL and Valkey hold data, queues and cache; only outbound HTTPS goes to WhatsApp, LLM APIs and payment, SMS and voice providers.">
+      <div class="layer">
+        <div class="lname">Users</div>
+        <div class="nodes">
+          <div class="node"><b>Patients</b><span>WhatsApp: buttons and text</span></div>
+          <div class="node"><b>Clinic staff</b><span>Web portal: reception, doctor, admin</span></div>
+          <div class="node"><b>Company team</b><span>Console: clinics, AI cost, errors</span></div>
+        </div>
+      </div>
+      <div class="arrow">↓ HTTPS only</div>
+      <div class="layer edge">
+        <div class="lname">Edge</div>
+        <div class="nodes">
+          <div class="node"><b>Cloudflare</b><span>DNS, proxy, firewall</span></div>
+          <div class="node"><b>Caddy</b><span>TLS, security headers; the only container with open ports (80/443)</span></div>
+        </div>
+      </div>
+      <div class="arrow">↓ private Docker network</div>
+      <div class="layer box">
+        <div class="lname">Docker Compose · non-root, read-only containers with memory limits</div>
+        <div class="nodes">
+          <div class="node"><b>API</b><span>NestJS: checks the webhook signature, stores it, queues it, answers in milliseconds</span></div>
+          <div class="node"><b>Worker</b><span>BullMQ: the bot conversation, reminders, AI calls, retries</span></div>
+          <div class="node"><b>Portal · Console</b><span>Next.js; live updates over Socket.IO</span></div>
+        </div>
+        <div class="nodes data">
+          <div class="node db"><b>PostgreSQL 16</b><span>Row-level security per clinic, no-double-booking constraints, event outbox</span></div>
+          <div class="node db"><b>Valkey</b><span>Job queues, AI response cache, live-update fan-out</span></div>
+        </div>
+      </div>
+      <div class="arrow">↓ outbound HTTPS only</div>
+      <div class="layer">
+        <div class="lname">Outside services (each behind an adapter, with a fake for tests)</div>
+        <div class="nodes">
+          <div class="node"><b>WhatsApp Cloud API</b><span>Messages, buttons, templates</span></div>
+          <div class="node"><b>LLM APIs</b><span>Extraction only; personal data removed first</span></div>
+          <div class="node"><b>Payments · SMS · Voice</b><span>Signed webhooks back in</span></div>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="arch-h">How it is secured and kept fast</h3>
+    <div class="grid g3">
+      <div class="card"><h3>Locked-down containers</h3>
+        <ul class="tight">
+          <li>Only the reverse proxy is reachable; the database and cache are never exposed</li>
+          <li>Containers run as a non-root user, read-only, with no privilege escalation</li>
+          <li>Memory limits and health checks on every service</li>
+        </ul></div>
+      <div class="card"><h3>Each clinic sees only its own data</h3>
+        <ul class="tight">
+          <li>Postgres row-level security on every clinic table, enforced by the database, not just the code</li>
+          <li>The app's database user cannot bypass it; company-wide admin work uses a separate path that must state a reason</li>
+          <li>Tests try other clinics' IDs on every route: about 4,400 calls, all refused</li>
+        </ul></div>
+      <div class="card"><h3>Correct bookings, every time</h3>
+        <ul class="tight">
+          <li>Double booking is impossible: a database constraint rejects overlapping visits</li>
+          <li>Appointments change only through a state machine with a history</li>
+          <li>Events go to an outbox in the same transaction, so nothing is lost</li>
+        </ul></div>
+      <div class="card"><h3>Safe webhooks</h3>
+        <ul class="tight">
+          <li>HMAC signature checked on the raw body; tokens compared in constant time</li>
+          <li>Stored, queued and answered fast; message IDs stop double processing when Meta retries</li>
+        </ul></div>
+      <div class="card"><h3>AI on a short leash</h3>
+        <ul class="tight">
+          <li>Buttons and keywords first; the model is called only when needed</li>
+          <li>Phone numbers and names are removed before any model call, including hidden-character tricks</li>
+          <li>Output must pass a schema; the model never sees the schedule or writes patient text</li>
+        </ul></div>
+      <div class="card"><h3>Caching and speed</h3>
+        <ul class="tight">
+          <li>Valkey caches AI answers; results like "tomorrow evening" are stored as relative dates, so one answer serves every day</li>
+          <li>Prompts are ordered fixed part → clinic part → message, so the provider's prompt cache cuts cost</li>
+          <li>Config caches refresh instantly through Postgres LISTEN/NOTIFY</li>
+        </ul></div>
+      <div class="card"><h3>Logins and access</h3>
+        <ul class="tight">
+          <li>HttpOnly secure cookies, a CSRF check on every write, login rate limits that forged headers cannot dodge</li>
+          <li>Every route must declare a permission, or the API refuses to start</li>
+        </ul></div>
+      <div class="card"><h3>Privacy</h3>
+        <ul class="tight">
+          <li>Secrets only in environment files; provider keys encrypted in the database</li>
+          <li>Logs mask phone numbers; database errors are scrubbed of names and emails</li>
+          <li>Uploads are checked by their real bytes, not the declared file type</li>
+        </ul></div>
+      <div class="card"><h3>Proven by tests</h3>
+        <ul class="tight">
+          <li>280 integration tests on a real Postgres (Testcontainers), plus browser tests (Playwright)</li>
+          <li>A security campaign found 12 weaknesses; each fix has a test that failed on the old code</li>
+        </ul></div>
     </div>
   </section>
 
@@ -236,7 +351,7 @@
         </details>
       </div>
       <div class="item">
-        <h3>Tata Consultancy Services</h3><div class="when">2019 to 2021 · Application Developer</div>
+        <h3>Tata Consultancy Services</h3><div class="when">May 2019 to 2021 · Application Developer</div>
         <details><summary>US energy utility</summary>
           <ul class="tight">
             <li>REST APIs on Anypoint Platform; API specifications in RAML, published through Exchange.</li>

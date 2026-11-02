@@ -36,7 +36,7 @@
   </div>
 
   <h2>Summary</h2>
-  <p>Integration engineer with 6+ years building enterprise APIs on MuleSoft (Mule 4 certified), now designing agentic
+  <p>Integration engineer with 7+ years (since May 2019) building enterprise APIs on MuleSoft (Mule 4 certified), now designing agentic
   AI systems in which a model interprets and tested, access-controlled code acts. Building a multi-clinic WhatsApp
   appointment platform for Hindi and Maithili-speaking patients, directing an AI coding agent (Claude Code) milestone
   by milestone: I plan, review every change, test and demo. Presented an AI sales assistant orchestrated with Einstein
@@ -55,11 +55,14 @@
     <li>"Buttons first, AI second": WhatsApp buttons and keyword shortcuts handle most messages; the LLM only extracts
       intent as schema-validated JSON (Zod), never sees personal data or the schedule, and never writes patient text.
       Model routes are data, every call is metered for tokens and cost, and an eval harness compares models.</li>
-    <li>Safety by construction: database constraints make double booking impossible; appointments change only through
-      a state machine with an event outbox; signed, idempotent webhooks; vendor fakes for payments, SMS, voice,
-      WhatsApp Flows and ABDM.</li>
-    <li>250+ integration tests (Testcontainers) and Playwright browser tests; a security campaign that found and fixed
-      12 weaknesses, each with a regression test.</li>
+    <li>Secured in layers: Docker Compose where only the reverse proxy (Caddy: TLS, security headers) is exposed and
+      every other container runs non-root and read-only on a private network; row-level security isolates each
+      clinic's data inside Postgres; HMAC-verified, idempotent webhooks; personal data redacted before any LLM call.</li>
+    <li>Fast and correct: Valkey for BullMQ queues and an AI response cache, prompts ordered for provider prompt
+      caching; database constraints make double booking impossible; appointments change only through a state machine
+      with a transactional outbox.</li>
+    <li>280 integration tests on real Postgres (Testcontainers) and Playwright browser tests; a security campaign that
+      found and fixed 12 weaknesses, each with a regression test; about 4,400 cross-clinic access attempts refused.</li>
     <li>Earlier version (Python, FastAPI, Oracle Autonomous DB) live on the WhatsApp Cloud API as the demo: HMAC
       signature checks, duplicate-message guard, masked logs and delivery-status tracing.</li>
   </ul>
@@ -94,7 +97,7 @@
   </div>
 
   <div class="keep">
-  <div class="head"><span>Tata Consultancy Services · Application Developer</span><span class="when">2019 to 2021</span></div>
+  <div class="head"><span>Tata Consultancy Services · Application Developer</span><span class="when">May 2019 to 2021</span></div>
   <div class="client">US energy utility</div>
   <ul>
     <li>REST APIs on Anypoint Platform; RAML specifications published through Exchange; basic authentication and
