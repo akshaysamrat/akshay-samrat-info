@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Akshay Samrat, Agentic AI Systems Designer</title>
-<meta name="description" content="Akshay Samrat: Mule 4 certified integration engineer (6+ years) designing agentic AI systems where the model decides and tested, access-controlled tools act.">
+<meta name="description" content="Akshay Samrat: Mule 4 certified integration engineer (6+ years) designing agentic AI systems where the model interprets and tested, access-controlled code acts.">
 <meta property="og:title" content="Akshay Samrat, Agentic AI Systems Designer">
-<meta property="og:description" content="From API-led integration to agent-led systems. Projects: Dant Saathi (Hindi WhatsApp booking agent), an AI sales assistant orchestrated with a MuleSoft MCP server, and more.">
+<meta property="og:description" content="From API-led integration to agent-led systems. Projects: a WhatsApp appointment assistant for Hindi and Maithili-speaking patients, an AI sales assistant orchestrated with a MuleSoft MCP server, and more.">
 <style>
   :root {
     --bg:#f7f9fc; --card:#ffffff; --ink:#142132; --muted:#5a6a7c; --line:#d9e1ea;
@@ -128,7 +128,7 @@
     <div>
       <div class="eyebrow">Agentic AI Systems Designer</div>
       <h1>I design AI agents that <em>act safely</em>.</h1>
-      <p class="lede">Six years of building enterprise APIs on MuleSoft taught me what makes automation trustworthy: contracts, policies, retries and audit trails. Now I apply it to agents, where a model decides and tested, access-controlled tools do the work.</p>
+      <p class="lede">Six years of building enterprise APIs on MuleSoft taught me what makes automation trustworthy: contracts, policies, retries and audit trails. Now I apply it to agents, where a model understands the request and tested, access-controlled code does the work.</p>
       <div class="cta">
         <a class="btn primary" href="Akshay_Samrat_Resume.pdf">⬇ Download resume (PDF)</a>
         <a class="btn" href="#projects">See projects</a>
@@ -138,22 +138,22 @@
         <div><b>6+ yrs</b>enterprise integration</div>
         <div><b>Mule 4</b>certified developer</div>
         <div><b>MCP · Claude</b>agent orchestration</div>
-        <div><b>EN · हिंदी</b>multilingual agents</div>
+        <div><b>EN · हिंदी · मैथिली</b>multilingual agents</div>
       </div>
     </div>
 
-    <div class="term" aria-label="Illustrative agent trace from my Dant Saathi project">
-      <div class="term-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="t">agent-trace · Dant Saathi</span></div>
+    <div class="term" aria-label="Illustrative trace from my WhatsApp clinic assistant">
+      <div class="term-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="t">agent-trace · WhatsApp clinic assistant</span></div>
       <div class="term-body" id="trace" aria-live="polite">
         <div class="ln"><span class="who">patient</span> <span class="hi">"kal sham ko appointment mil jayega?"</span></div>
         <div class="ln"><span class="who">guard</span>&nbsp; signature <span class="ok">✓</span> · duplicate <span class="ok">no</span> → pass</div>
-        <div class="ln"><span class="who">agent</span>&nbsp; intent=book · calls <span class="tool">get_free_slots(date="tomorrow")</span></div>
-        <div class="ln"><span class="who">tool</span>&nbsp;&nbsp; checks future date · clinic hours · IST</div>
-        <div class="ln"><span class="who">db</span>&nbsp;&nbsp;&nbsp;&nbsp; free: <span class="ok">17:00, 18:30</span> (the agent never invents slots)</div>
-        <div class="ln"><span class="who">agent</span>&nbsp; replies in Hindi · no medical advice</div>
-        <div class="ln"><span class="who">bot</span>&nbsp;&nbsp;&nbsp; <span class="hi">"जी, कल शाम 5:00 बजे और 6:30 बजे स्लॉट खाली हैं। कौन सा चाहिए?"</span></div>
+        <div class="ln"><span class="who">router</span> no button, no keyword → AI may <i>extract</i>, not decide</div>
+        <div class="ln"><span class="who">ai</span>&nbsp;&nbsp;&nbsp;&nbsp; <span class="tool">{intent:"book", day:"tomorrow", time:"evening"}</span> · schema <span class="ok">✓</span> · no personal data sent</div>
+        <div class="ln"><span class="who">code</span>&nbsp;&nbsp; finds slots in clinic time (IST): <span class="ok">17:00, 18:30</span> (the model never sees the schedule)</div>
+        <div class="ln"><span class="who">code</span>&nbsp;&nbsp; Hindi reply from a reviewed text catalog · 2 buttons</div>
+        <div class="ln"><span class="who">bot</span>&nbsp;&nbsp;&nbsp; <span class="hi">"जी, कल शाम ये स्लॉट खाली हैं:"</span> [5:00 PM] [6:30 PM]</div>
       </div>
-      <div class="term-foot"><span>Illustrative trace of my design</span><button id="replay" type="button">↺ Replay</button></div>
+      <div class="term-foot"><span>Illustrative trace of the design</span><button id="replay" type="button">↺ Replay</button></div>
     </div>
   </section>
 
@@ -172,15 +172,16 @@
     <p class="sub">Stated honestly: what is built, what is in progress, and what is only presented.</p>
     <div class="grid g3">
       <article class="card">
-        <h3>Dant Saathi</h3>
-        <span class="chip s-prog">In progress · testing</span>
-        <p>A Hindi/Hinglish WhatsApp assistant for a dental clinic in Ranchi to book, change and cancel appointments. Claude is the brain; Python tools do the real work. It never gives medical advice and hands over to a human.</p>
+        <h3>WhatsApp appointment assistant for Hindi and Maithili-speaking patients</h3>
+        <span class="chip s-prog">In development · multi-clinic platform</span>
+        <p>Patients book, change and cancel clinic appointments on WhatsApp in English, Hindi or Maithili; clinic staff work from a web portal. I lead the build from a mentor's architecture, with Claude Code as the coding agent: I plan each milestone, review the changes, test and demo.</p>
         <ul class="tight">
-          <li><b>Built:</b> signed webhook (HMAC), duplicate-safe handling, masked logs, delivery-status tracing, outbound replies</li>
-          <li><b>Next:</b> Claude tool use, booking tools, appointment database, staff view</li>
-          <li><b>Also:</b> bilingual privacy policy, DPDP-minded data plan, security and test plans, interactive architecture diagram</li>
+          <li><b>Design:</b> buttons first, AI second. The model only extracts intent as validated JSON; code decides, and the model never sees personal data or the schedule</li>
+          <li><b>Built:</b> multi-clinic data isolation (Postgres row-level security), no double booking by database constraint, appointment state machine, signed and idempotent webhooks, metered LLM routing, clinic portal and company console</li>
+          <li><b>Tested:</b> 250+ integration tests, browser tests, and a security campaign with 12 fixes, each with a regression test</li>
+          <li><b>Earlier version:</b> Python/FastAPI bot, live on WhatsApp as the demo</li>
         </ul>
-        <div class="tags"><span class="tag">Claude tool use</span><span class="tag">FastAPI</span><span class="tag">WhatsApp Cloud API</span><span class="tag">Security by design</span></div>
+        <div class="tags"><span class="tag">TypeScript</span><span class="tag">NestJS</span><span class="tag">Next.js</span><span class="tag">PostgreSQL</span><span class="tag">WhatsApp Cloud API</span><span class="tag">Claude Code</span></div>
       </article>
 
       <article class="card">
@@ -257,7 +258,9 @@
     <h2>Skills</h2>
     <div class="grid g3">
       <div class="card"><h3>Building agents now</h3>
-        <div class="tags"><span class="tag">Claude API &amp; tool use</span><span class="tag">MCP</span><span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">httpx</span><span class="tag">Guardrails</span><span class="tag">Conversation evals</span></div></div>
+        <div class="tags"><span class="tag">Claude API &amp; tool use</span><span class="tag">MCP</span><span class="tag">Structured outputs (Zod)</span><span class="tag">LLM routing &amp; cost metering</span><span class="tag">Guardrails</span><span class="tag">Evals</span><span class="tag">Directing coding agents (Claude Code)</span></div></div>
+      <div class="card"><h3>Application stack</h3>
+        <div class="tags"><span class="tag">TypeScript</span><span class="tag">NestJS</span><span class="tag">Next.js</span><span class="tag">PostgreSQL (row-level security)</span><span class="tag">BullMQ · Valkey</span><span class="tag">Vitest · Playwright</span><span class="tag">Docker</span><span class="tag">Python · FastAPI</span></div></div>
       <div class="card"><h3>Integration (core strength)</h3>
         <div class="tags"><span class="tag">MuleSoft Mule 4</span><span class="tag">API-led architecture</span><span class="tag">RAML · API Manager</span><span class="tag">DataWeave</span><span class="tag">CloudHub</span><span class="tag">Custom connectors (Mule SDK)</span><span class="tag">IBM MQ</span><span class="tag">Workday · Salesforce · Okta · Auth0</span></div></div>
       <div class="card"><h3>Cloud &amp; engineering</h3>
@@ -308,8 +311,8 @@
   /* MuleSoft <-> agentic AI mapping */
   var MAP = [
     { mule: 'Experience, Process and System APIs', mv: 'Layered APIs, each with one job', agent: 'Agent, tools and systems of record', av: 'The agent decides; tools act; databases hold the truth', d: 'Same layering, new top layer.' },
-    { mule: 'API policies (client ID enforcement)', mv: 'Checked before the flow runs', agent: 'Guardrails in code', av: 'Ownership and limits are enforced in the tool, not only in the prompt', d: 'A prompt is a request. Code is a lock.' },
-    { mule: 'Idempotent Message Validator', mv: 'The same message twice, one effect', agent: 'Duplicate-safe tool calls', av: 'Message IDs stop double bookings when Meta retries', d: 'Built into Dant Saathi.' },
+    { mule: 'API policies (client ID enforcement)', mv: 'Checked before the flow runs', agent: 'Guardrails in code', av: 'The model extracts; code decides. Ownership, limits and clinic isolation are enforced in code and the database', d: 'A prompt is a request. Code is a lock.' },
+    { mule: 'Idempotent Message Validator', mv: 'The same message twice, one effect', agent: 'Duplicate-safe processing', av: 'Message IDs stop double processing when Meta retries; a database constraint stops double booking', d: 'Built into my WhatsApp clinic assistant.' },
     { mule: 'RAML and DataWeave types', mv: 'Contracts for every payload', agent: 'Typed tool schemas', av: 'Every tool input is validated before it touches data', d: 'Bad input never reaches the database.' },
     { mule: 'MUnit', mv: 'Tests for every flow', agent: 'Conversation evals and attack tests', av: 'Hindi, typos, prompt injection, medical questions', d: 'Every wrong answer becomes a new test.' },
     { mule: 'Anypoint Monitoring', mv: 'Know before the client does', agent: 'Masked logs and delivery tracing', av: 'Status codes read from the platform, no personal data in logs', d: 'It exposed a Meta account block within one log line.' }
