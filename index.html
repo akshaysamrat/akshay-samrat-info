@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Akshay Samrat, Agentic AI Systems Designer</title>
-<meta name="description" content="Akshay Samrat: Mule 4 certified integration engineer (7+ years) designing agentic AI systems where the model interprets and tested, access-controlled code acts.">
+<meta name="description" content="Akshay Samrat: NVIDIA-certified agentic AI professional and Mule 4 certified integration engineer (7+ years). Founder of DaantSaathi, a WhatsApp clinic assistant built with a team of AI agents.">
 <meta property="og:title" content="Akshay Samrat, Agentic AI Systems Designer">
 <meta property="og:description" content="From API-led integration to agent-led systems. Projects: a WhatsApp appointment assistant for Hindi and Maithili-speaking patients, an AI sales assistant orchestrated with a MuleSoft MCP server, and more.">
 <style>
@@ -150,6 +150,7 @@
       </div>
       <div class="facts">
         <div><b>7+ yrs</b>enterprise integration</div>
+        <div><b>NVIDIA</b>certified agentic AI</div>
         <div><b>Mule 4</b>certified developer</div>
         <div><b>MCP · Claude</b>agent orchestration</div>
         <div><b>EN · हिंदी · मैथिली</b>multilingual agents</div>
@@ -186,13 +187,14 @@
     <p class="sub">Stated honestly: what is built, what is in progress, and what is only presented.</p>
     <div class="grid g3">
       <article class="card">
-        <h3>WhatsApp appointment assistant for Hindi and Maithili-speaking patients</h3>
-        <span class="chip s-prog">In development · multi-clinic platform</span>
-        <p>Patients book, change and cancel clinic appointments on WhatsApp in English, Hindi or Maithili; clinic staff work from a web portal. I lead the build from a mentor's architecture, with Claude Code as the coding agent: I plan each milestone, review the changes, test and demo.</p>
+        <h3>DaantSaathi: WhatsApp clinic assistant for Hindi and Maithili-speaking patients</h3>
+        <span class="chip s-done">Deployed on Azure · pilot-ready</span>
+        <p>Patients book, change and cancel clinic appointments on WhatsApp in English, Hindi or Maithili; clinic staff work from a web portal. I founded it and lead the build from a 1,500-line architecture spec, with AI coding agents doing the work: I plan each milestone, review the changes and do the demos. It runs on Azure in Central India; the first clinic pilot starts when the clinic is ready.</p>
         <ul class="tight">
           <li><b>Design:</b> buttons first, AI second. The model only extracts intent as validated JSON; code decides, and the model never sees personal data or the schedule</li>
           <li><b>Built:</b> multi-clinic data isolation (Postgres row-level security), no double booking by database constraint, appointment state machine, signed and idempotent webhooks, metered LLM routing, clinic portal and company console</li>
-          <li><b>Tested:</b> 280 integration tests, browser tests, and a security campaign with 12 fixes, each with a regression test</li>
+          <li><b>Tested:</b> 370+ integration tests, browser tests, and a security campaign with 12 fixes, each with a regression test</li>
+          <li><b>New:</b> staff-approved "Suggest with AI" answers for the clinic FAQ, checked by a real-model eval harness</li>
           <li><b>Earlier version:</b> Python/FastAPI bot, live on WhatsApp as the demo</li>
         </ul>
         <p><a href="#architecture">See the architecture and how it is secured →</a></p>
@@ -212,6 +214,49 @@
       </article>
 
       <article class="card">
+        <h3>An AI agent workforce that builds the product</h3>
+        <span class="chip s-done">Running daily</span>
+        <p>I run DaantSaathi's build like a small company: I am the CEO, Claude Code is the CTO who reviews and deploys, and nine specialist AI helpers do the work.</p>
+        <ul class="tight">
+          <li><b>Team:</b> builder, developer, tester, legal, security, chat reviewer and Android packager, on free NVIDIA-hosted models and Google Antigravity</li>
+          <li><b>Guardrails:</b> helpers work only on their own branches behind a code gate; every claim is checked; each helper is scored by what it improved, never by volume</li>
+          <li><b>Process:</b> build only, review once in a queue, one combined release, one test run, one deploy</li>
+        </ul>
+        <div class="tags"><span class="tag">Multi-agent</span><span class="tag">Claude Code</span><span class="tag">NVIDIA-hosted models</span><span class="tag">Google Antigravity</span></div>
+      </article>
+
+      <article class="card">
+        <h3>Laptop-free CI on free cloud credits</h3>
+        <span class="chip s-done">Built</span>
+        <p>When the laptop broke and CI minutes ran out, the heavy work moved to machines that cost nothing while idle.</p>
+        <ul class="tight">
+          <li><b>Azure:</b> an on-demand VM with no public IP runs every test gate through Run Command and doubles as the backup deployer over private VNet peering</li>
+          <li><b>AWS:</b> one-shot EC2 workers from saved images (IMDSv2, encrypted disks, no IAM role) build the Android app and switch themselves off</li>
+          <li><b>Rule:</b> patient data never leaves India (DPDP), so these machines get only code and made-up data</li>
+        </ul>
+        <div class="tags"><span class="tag">Azure</span><span class="tag">AWS EC2</span><span class="tag">Free tier</span><span class="tag">DevOps</span></div>
+      </article>
+
+      <article class="card">
+        <h3>DaantSaathi Staff for Android</h3>
+        <span class="chip s-prog">In progress · Play Store closed testing next</span>
+        <p>A light app for reception and doctors: today's schedule and a camera shortcut that scans the clinic's paper register. It wraps the clinic portal (Trusted Web Activity), so there is one codebase and the app stays small.</p>
+        <div class="tags"><span class="tag">Android</span><span class="tag">TWA · Bubblewrap</span><span class="tag">Next.js PWA</span></div>
+      </article>
+
+      <article class="card">
+        <h3>Self-healing laptop runbook</h3>
+        <span class="chip s-done">Running every 3 hours</span>
+        <p>My trick to keep a development laptop fast without risky "cleaner" apps: a decision-graph runbook an AI agent follows on a schedule.</p>
+        <ul class="tight">
+          <li>Measures free RAM, commit charge, disk and crash dumps, then opens only the one fix node the router prints</li>
+          <li>Trims only whitelisted temp folders (about 0.5 GB freed in one pass); never kills a process or reads a dump</li>
+          <li>Anything risky becomes a short "needs you" list for the human</li>
+        </ul>
+        <div class="tags"><span class="tag">PowerShell</span><span class="tag">Runbooks</span><span class="tag">AI agents</span></div>
+      </article>
+
+      <article class="card">
         <h3>Somras</h3>
         <span class="chip s-soon">Early stage · details coming soon</span>
         <p>My own brand for AI and integration ideas. More here once it is ready to be shown.</p>
@@ -222,7 +267,7 @@
 
   <section id="architecture">
     <h2>Architecture: the WhatsApp clinic assistant</h2>
-    <p class="sub">One request's path, from a patient's phone to the database. Security is built in layers, so no single mistake opens everything. It runs locally in Docker today; the same containers are set up for one cloud VM behind Cloudflare.</p>
+    <p class="sub">One request's path, from a patient's phone to the database. Security is built in layers, so no single mistake opens everything. It runs on one Azure VM in Central India behind Cloudflare, so patient data stays in India.</p>
     <div class="arch" role="img" aria-label="Architecture: users reach Cloudflare and Caddy, which forward to the API, portal and console on a private Docker network; a worker processes queued jobs; PostgreSQL and Valkey hold data, queues and cache; only outbound HTTPS goes to WhatsApp, LLM APIs and payment, SMS and voice providers.">
       <div class="layer">
         <div class="lname">Users</div>
@@ -314,7 +359,7 @@
         </ul></div>
       <div class="card"><h3>Proven by tests</h3>
         <ul class="tight">
-          <li>280 integration tests on a real Postgres (Testcontainers), plus browser tests (Playwright)</li>
+          <li>370+ integration tests on a real Postgres (Testcontainers), plus browser tests (Playwright)</li>
           <li>A security campaign found 12 weaknesses; each fix has a test that failed on the old code</li>
         </ul></div>
     </div>
@@ -325,15 +370,15 @@
     <p class="sub">API and integration delivery across energy, pharma, retail supply chain, beverages and healthcare staffing.</p>
     <div class="tl">
       <div class="item">
-        <h3>Accelirate Inc.</h3><div class="when">2023 to present · Application Developer</div>
-        <details open><summary>Global beverage company</summary>
+        <h3>Accelirate Inc.</h3><div class="when">May 2023 to present · Senior Integration Developer</div>
+        <details open><summary>Coca-Cola Inc. (global beverage enterprise)</summary>
           <ul class="tight">
-            <li>Presented an AI-powered sales assistant (product lookup to order and inventory) orchestrated with Einstein AI and a MuleSoft MCP server and client.</li>
+            <li>Designed and presented an AI-powered sales assistant (product lookup to order and inventory) orchestrated with Einstein AI and a MuleSoft MCP server and client.</li>
             <li>Owned the Print &amp; Apply division integrations: accurate labeling, automated packaging workflows, supply-chain system integration.</li>
-            <li>Led the migration of Fulfilment APIs from Mule 3 to Mule 4.</li>
+            <li>Led the modernization of core Shipping Fulfillment APIs from Mule 3 to Mule 4.</li>
           </ul>
         </details>
-        <details><summary>Healthcare staffing firm</summary>
+        <details><summary>Hayes Locums (healthcare staffing)</summary>
           <ul class="tight">
             <li>Led a team of 4 building a client portal for healthcare and facility management.</li>
             <li>Auth0 for access management; authenticated and controlled user-level access to Tableau dashboards through MuleSoft.</li>
@@ -342,17 +387,17 @@
         </details>
       </div>
       <div class="item">
-        <h3>Accenture</h3><div class="when">2021 to May 2023 · Application Developer</div>
-        <details><summary>Global pharma company</summary>
+        <h3>Accenture</h3><div class="when">May 2021 to May 2023 · Application Developer</div>
+        <details><summary>Takeda Pharmaceuticals</summary>
           <ul class="tight"><li>Okta integration for registration; Salesforce integration for the back end.</li></ul>
         </details>
-        <details><summary>US pharma distributor</summary>
+        <details><summary>AmerisourceBergen</summary>
           <ul class="tight"><li>Orchestration APIs using a hub-and-spoke model with Salesforce integration.</li></ul>
         </details>
       </div>
       <div class="item">
-        <h3>Tata Consultancy Services</h3><div class="when">May 2019 to 2021 · Application Developer</div>
-        <details><summary>US energy utility</summary>
+        <h3>Tata Consultancy Services</h3><div class="when">May 2019 to Sep 2021 · MuleSoft Developer</div>
+        <details><summary>NiSource Inc. (US energy utility)</summary>
           <ul class="tight">
             <li>REST APIs on Anypoint Platform; API specifications in RAML, published through Exchange.</li>
             <li>Security policies (basic authentication, client ID enforcement); Workday, SOAP and HTTP connectors; XSLT; SFTP file creation.</li>
@@ -373,16 +418,16 @@
     <h2>Skills</h2>
     <div class="grid g3">
       <div class="card"><h3>Building agents now</h3>
-        <div class="tags"><span class="tag">Claude API &amp; tool use</span><span class="tag">MCP</span><span class="tag">Structured outputs (Zod)</span><span class="tag">LLM routing &amp; cost metering</span><span class="tag">Guardrails</span><span class="tag">Evals</span><span class="tag">Directing coding agents (Claude Code)</span></div></div>
+        <div class="tags"><span class="tag">Claude API &amp; tool use</span><span class="tag">MCP</span><span class="tag">Structured outputs (Zod)</span><span class="tag">LLM routing &amp; cost metering</span><span class="tag">Guardrails</span><span class="tag">Evals</span><span class="tag">Directing coding agents (Claude Code, Antigravity)</span><span class="tag">Multi-agent teams with code gates</span></div></div>
       <div class="card"><h3>Application stack</h3>
         <div class="tags"><span class="tag">TypeScript</span><span class="tag">NestJS</span><span class="tag">Next.js</span><span class="tag">PostgreSQL (row-level security)</span><span class="tag">BullMQ · Valkey</span><span class="tag">Vitest · Playwright</span><span class="tag">Docker</span><span class="tag">Python · FastAPI</span></div></div>
       <div class="card"><h3>Integration (core strength)</h3>
         <div class="tags"><span class="tag">MuleSoft Mule 4</span><span class="tag">API-led architecture</span><span class="tag">RAML · API Manager</span><span class="tag">DataWeave</span><span class="tag">CloudHub</span><span class="tag">Custom connectors (Mule SDK)</span><span class="tag">IBM MQ</span><span class="tag">Workday · Salesforce · Okta · Auth0</span></div></div>
       <div class="card"><h3>Cloud &amp; engineering</h3>
-        <div class="tags"><span class="tag">AWS Lambda · S3 · Aurora</span><span class="tag">Java · Spring</span><span class="tag">Maven</span><span class="tag">MySQL</span><span class="tag">Git</span></div></div>
+        <div class="tags"><span class="tag">Azure VMs · Run Command · VNet peering</span><span class="tag">AWS EC2 · AMIs · Lambda · S3 · Aurora</span><span class="tag">Cloudflare</span><span class="tag">Tailscale</span><span class="tag">Java · Spring</span><span class="tag">Maven</span><span class="tag">MySQL</span><span class="tag">Git</span></div></div>
     </div>
-    <p class="sub" style="margin-top:18px"><b>Certification:</b> Mule 4 Certified Developer.</p>
-    <p class="sub"><b>Education:</b> PGPM, IMT Ghaziabad (2021) · B.Tech CSE, SRM University (2019, 89.08%). Technical head of Gen Hybrid Labs; recognised by the department head for a crop recommendation system; first prize in a physics project.</p>
+    <p class="sub" style="margin-top:18px"><b>Certifications:</b> NVIDIA-Certified Professional: Agentic AI (Sep 2026 to Sep 2028) · MuleSoft Certified Developer, Level 1 (Mule 4).</p>
+    <p class="sub"><b>Education:</b> PGPM, IMT Ghaziabad (2020 to 2021) · B.Tech CSE, SRM Institute of Science and Technology (2015 to 2019, 89.08%, 8.67 GPA) · 12th CBSE, Surendra Nath Centenary School, Ranchi (90.8%). Technical head of Gen Hybrid Labs; recognised by the department head for a crop recommendation system; first prize in a physics project.</p>
     <p class="sub"><b>Research:</b> <a href="http://sersc.org/journals/index.php/IJAST/article/view/10819" rel="noopener">published paper (IJAST)</a></p>
   </section>
 
